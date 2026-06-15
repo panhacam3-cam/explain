@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ការពន្យល់កូដ - គេហទំព័រ BELTEI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans Khmer', sans-serif;
+      background: linear-gradient(135deg, #0a1a3a 0%, #1a3a6a 100%);
+      color: #1e293b;
+      line-height: 2;
+      min-height: 100vh;
+    }
+    .wrapper { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .header-banner {
+      background: linear-gradient(135deg, #0a1a3a, #2563eb);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      border: 2px solid #f59e0b;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .header-banner h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; color: #fcd34d; }
+    .header-banner p { font-size: 16px; opacity: 0.9; }
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      border: 1px solid #dde4f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .section-title {
+      font-size: 22px; font-weight: 700; color: #0a1a3a;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 3px solid #f59e0b;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-title i { color: #f59e0b; font-size: 24px; }
+    .code-block {
+      background: #1e293b; color: #e2e8f0;
+      padding: 20px; border-radius: 12px;
+      font-family: 'Courier New', monospace; font-size: 13px;
+      line-height: 1.8; overflow-x: auto;
+      margin: 15px 0; border-left: 4px solid #f59e0b;
+    }
+    .code-block .tag { color: #f59e0b; }
+    .code-block .attr { color: #60a5fa; }
+    .code-block .val { color: #a5f3fc; }
+    .code-block .comment { color: #64748b; font-style: italic; }
+    .explanation-box {
+      background: #eff6ff; border-left: 4px solid #2563eb;
+      padding: 16px 20px; border-radius: 0 10px 10px 0;
+      margin: 12px 0;
+    }
+    .explanation-box strong { color: #0a1a3a; font-size: 15px; }
+    .explanation-box p { color: #475569; margin-top: 6px; }
+    .highlight {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      padding: 2px 8px; border-radius: 4px;
+      font-weight: 600; color: #92400e;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .card-mini {
+      background: #f7f9fc; border-radius: 12px;
+      padding: 20px; border: 1px solid #dde4f0;
+    }
+    .card-mini h4 { color: #2563eb; font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .card-mini h4 i { color: #f59e0b; }
+    .card-mini p { color: #475569; font-size: 14px; }
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #2563eb, #0a1a3a);
+      color: white; border-radius: 50%;
+      font-weight: 700; font-size: 14px;
+      margin-right: 10px; flex-shrink: 0;
+    }
+    .step-row {
+      display: flex; align-items: flex-start;
+      margin-bottom: 16px; padding: 14px;
+      background: #f7f9fc; border-radius: 10px;
+    }
+    .step-row p { flex: 1; margin: 0; }
+    .footer-bar { text-align: center; padding: 30px; color: rgba(255,255,255,0.7); font-size: 14px; }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .header-banner h1 { font-size: 24px; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header-banner">
+    <h1><i class="fas fa-code"></i> ការពន្យល់កូដគេហទំព័រ</h1>
+    <p>សាលា ប៊ែលធី អន្តរជាតិ | BELTEI International School Website</p>
+    <p style="margin-top:8px; font-size:14px; opacity:0.8;">ឯកសារណែនាំពេញលេញសម្រាប់អ្នកចាប់ផ្តើមរៀន HTML/CSS/JavaScript</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-eye"></i> ១. ទិដ្ឋភាពទូទៅ (Overview)</h2>
+    <div class="explanation-box">
+      <strong>គេហទំព័រនេះសាងសង់ដោយប្រើអ្វី?</strong>
+      <p>គេហទំព័រនេះគឺជា <span class="highlight">Single Page Website</span> (គេហទំព័រទំព័រតែមួយ) ដែលប្រើប្រាស់បច្ចេកវិទ្យាចំនួន ៣ គឺ <strong>HTML</strong>, <strong>CSS</strong>, និង <strong>JavaScript (jQuery)</strong>។</p>
+    </div>
+    <div class="grid-2">
+      <div class="card-mini">
+        <h4><i class="fas fa-file-code"></i> HTML</h4>
+        <p>ជា​គ្រោង​សម្រាប់​បង្ហាញ​មាតិកា (អក្សរ, រូបភាព, ប៊ូតុង, ទម្រង់)។ គិតថាវាជា "ខ្លួន" របស់គេហទំព័រ។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-paint-brush"></i> CSS</h4>
+        <p>ជា​ស្បែក​សម្រាប់​តុបតែង​គេហទំព័រ (ពណ៌, ទំហំ, ទីតាំង, អានីមេស្សិន)។ គិតថាវាជា "សម្លៀកបំពាក់" របស់គេហទំព័រ។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-bolt"></i> JavaScript</h4>
+        <p>ជា​ខួរក្បាល​សម្រាប់​ធ្វើឲ្យ​គេហទំព័រ​មាន​ជីវិត (រូបភាពរត់, ម៉ឺនុយបើកបិទ, ប៊ូតុងរអិល)។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-plug"></i> jQuery</h4>
+        <p>ជា​បណ្ណាល័យ (Library) ដែលធ្វើឲ្យ JavaScript សរសេរងាយស្រួលជាង (ប្រើសញ្ញា $)។</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-sitemap"></i> ២. រចនាសម្ព័ន្ធ HTML (HTML Structure)</h2>
+    <div class="explanation-box">
+      <strong>រចនាសម្ព័ន្ធ HTML គឺជាអ្វី?</strong>
+      <p>HTML ប្រើ <span class="highlight">Tags</span> (ស្លាក) ដើម្បីបង្ហាញមាតិកា។ ឧទាហរណ៍៖ &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;។ គ្រប់ Tag ត្រូវបើក &lt;tag&gt; ហើយបិទ &lt;/tag&gt;។</p>
+    </div>
+    <div class="code-block">
+<span class="comment">&lt;!-- ផ្នែកក្បាលទំព័រ --&gt;</span>
+&lt;<span class="tag">head</span>&gt;
+  &lt;<span class="tag">title</span>&gt;សាលា ប៊ែលធី អន្តរជាតិ&lt;/<span class="tag">title</span>&gt;
+  &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"style.css"</span>&gt;
+&lt;/<span class="tag">head</span>&gt;
+
+<span class="comment">&lt;!-- ផ្នែករាងកាយទំព័រ --&gt;</span>
+&lt;<span class="tag">body</span>&gt;
+  &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="val">"topbar"</span>&gt;...&lt;/<span class="tag">div</span>&gt;       <span class="comment">&lt;!-- របារខាងលើ --&gt;</span>
+  &lt;<span class="tag">header</span> <span class="attr">class</span>=<span class="val">"header"</span>&gt;...&lt;/<span class="tag">header</span>&gt;   <span class="comment">&lt;!-- បឋមកថា --&gt;</span>
+  &lt;<span class="tag">nav</span> <span class="attr">class</span>=<span class="val">"nav"</span>&gt;...&lt;/<span class="tag">nav</span>&gt;           <span class="comment">&lt;!-- ម៉ឺនុយ --&gt;</span>
+  &lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="val">"hero"</span>&gt;...&lt;/<span class="tag">section</span>&gt;   <span class="comment">&lt;!-- រូបភាពធំ --&gt;</span>
+  &lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="val">"page-layout"</span>&gt;...&lt;/<span class="tag">div</span>&gt; <span class="comment">&lt;!-- មាតិកា + Sidebar --&gt;</span>
+  &lt;<span class="tag">footer</span> <span class="attr">class</span>=<span class="val">"footer"</span>&gt;...&lt;/<span class="tag">footer</span>&gt;   <span class="comment">&lt;!-- ជើងទំព័រ --&gt;</span>
+&lt;/<span class="tag">body</span>&gt;
+    </div>
+    <div class="explanation-box">
+      <strong>ពន្យល់ Tags សំខាន់ៗ៖</strong>
+      <p>• <strong>&lt;div&gt;</strong> = ប្រអប់ (Container) សម្រាប់ដាក់មាតិកា<br>
+      • <strong>&lt;section&gt;</strong> = ផ្នែកមួយនៃទំព័រ (ដូចជា Hero, About, News)<br>
+      • <strong>&lt;header&gt;</strong> = ផ្នែកក្បាល (Logo, ឈ្មោះសាលា)<br>
+      • <strong>&lt;nav&gt;</strong> = ម៉ឺនុយរុករក (Navigation Menu)<br>
+      • <strong>&lt;footer&gt;</strong> = ផ្នែកខាងក្រោម (ព័ត៌មានទំនាក់ទំនង)<br>
+      • <strong>&lt;img&gt;</strong> = បង្ហាញរូបភាព<br>
+      • <strong>&lt;a&gt;</strong> = តំណភ្ជាប់ (Link)</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-palette"></i> ៣. CSS - ការតុបតែង (Styling)</h2>
+    <div class="explanation-box">
+      <strong>CSS ធ្វើអ្វី?</strong>
+      <p>CSS (Cascading Style Sheets) គឺជាភាសាសម្រាប់តុបតែង HTML។ វាប្រាប់ Browser ថា អ្វីៗត្រូវមាន <span class="highlight">ពណ៌អ្វី</span>, <span class="highlight">ទំហំប៉ុន្មាន</span>, និង <span class="highlight">នៅទីតាំងណា</span>។</p>
+    </div>
+    <div class="code-block">
+<span class="comment">/* ឧទាហរណ៍៖ រចនាសម្ព័ន្ធ Top Bar */</span>
+.<span class="tag">topbar</span> {
+  <span class="attr">background</span>: <span class="val">#0a1a3a</span>;       <span class="comment">/* ពណ៌ផ្ទៃខាងក្រោមខៀវចាស់ */</span>
+  <span class="attr">color</span>: <span class="val">rgba(255,255,255,.85)</span>;  <span class="comment">/* ពណ៌អក្សរស (85% opacity) */</span>
+  <span class="attr">font-size</span>: <span class="val">13px</span>;            <span class="comment">/* ទំហំអក្សរ 13px */</span>
+  <span class="attr">border-bottom</span>: <span class="val">2px solid #f59e0b</span>; <span class="comment">/* បន្ទាត់ក្រោមមាស */</span>
+}
+
+<span class="comment">/* ឧទាហរណ៍៖ រចនាសម្ព័ន្ធ Header */</span>
+.<span class="tag">header</span> {
+  <span class="attr">background</span>: <span class="val">#ffffff</span>;       <span class="comment">/* ពណ៌ផ្ទៃស */</span>
+  <span class="attr">position</span>: <span class="val">sticky</span>;          <span class="comment">/* បិទជាប់ខាងលើពេលរអិល */</span>
+  <span class="attr">top</span>: <span class="val">0</span>;                   <span class="comment">/* បិទនៅចំណុចខាងលើទំព័រ */</span>
+  <span class="attr">z-index</span>: <span class="val">900</span>;             <span class="comment">/* ស្រទាប់ខ្ពស់ (លើគេ) */</span>
+}
+    </div>
+    <div class="explanation-box">
+      <strong>ពន្យល់ CSS Properties សំខាន់ៗ៖</strong>
+      <p>• <strong>display: flex</strong> = រៀបធាតុក្នុងបន្ទាត់តែមួយ (ដូចកៅអី)<br>
+      • <strong>grid-template-columns</strong> = បែងចែកជាជួរឈរ (ដូចតារាង)<br>
+      • <strong>position: sticky</strong> = បិទជាប់ពេលរអិលទំព័រ<br>
+      • <strong>transition</strong> = ធ្វើឲ្យការផ្លាស់ប្តូររលូន (smooth)<br>
+      • <strong>border-radius</strong> = ធ្វើឲ្យមុំមូល<br>
+      • <strong>box-shadow</strong> = ស្រមោលខាងក្រោម<br>
+      • <strong>hover</strong> = រចនាសម្ព័ន្ធពេល Mouse ដាក់លើ</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-th-large"></i> ៤. ប្រព័ន្ធបែងចែកទំព័រ (Layout System)</h2>
+    <div class="explanation-box">
+      <strong>ទំព័រនេះប្រើប្រព័ន្ធ Grid ដើម្បីបែងចែកមាតិកា</strong>
+      <p>គេហទំព័រមាន ២ ផ្នែកធំៗ៖ ផ្នែកឆ្វេង (មាតិកា) និងផ្នែកស្តាំ (Sidebar)។ នេះប្រើ <span class="highlight">CSS Grid</span> ដើម្បីបែងចែក។</p>
+    </div>
+    <div class="code-block">
+<span class="comment">/* ប្រព័ន្ធ Grid សម្រាប់បែងចែកទំព័រ */</span>
+.<span class="tag">page-layout</span> {
+  <span class="attr">display</span>: <span class="val">grid</span>;
+  <span class="attr">grid-template-columns</span>: <span class="val">1fr 300px</span>;
+  <span class="comment">/* 1fr = ផ្នែកឆ្វេងយកទំហំដែលនៅសល់ */
+  /* 300px = ផ្នែកស្តាំទទឹង 300px */</span>
+  <span class="attr">gap</span>: <span class="val">28px</span>;  <span class="comment">/* គម្លាតរវាងផ្នែក */</span>
+}
+    </div>
+    <div class="grid-2">
+      <div class="card-mini">
+        <h4><i class="fas fa-columns"></i> ផ្នែកឆ្វេង (Main Content)</h4>
+        <p>មាន Cards ជាច្រើន៖ Programs, About, Extra Programs, Facilities, Competitions, News, Videos។ ផ្នែកនេះទទឹងធំជាង (1fr)។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-list-ul"></i> ផ្នែកស្តាំ (Sidebar)</h4>
+        <p>មាន Side Cards ជាច្រើន៖ បញ្ជីឈ្មោះសិស្សបញ្ចប់, ប្រកួតនិយាយ, ប្រកួតជជែក, ប្រកួតអំណាន។ ទទឹង 300px ជាប់នៅកន្លែង (sticky)។</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-cubes"></i> ៥. Components សំខាន់ៗ (សមាសភាគ)</h2>
+    <div class="step-row">
+      <span class="step-number">១</span>
+      <p><strong>Top Bar (របារខាងលើ)</strong> — ផ្នែកខ្ពស់បំផុតនៃទំព័រ។ មានទូរសព្ទ, អ៊ីមែល, និងប៊ូតុងបណ្តាញសង្គម (Facebook, YouTube, Telegram, Instagram)។ ពណ៌ខៀវចាស់ #0a1a3a ជាមួយបន្ទាត់មាសក្រោម។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">២</span>
+      <p><strong>Header (បឋមកថា)</strong> — មាន Logo សាលា, ឈ្មោះសាលា "សាលា ប៊ែលធី អន្តរជាតិ", និងស្លាក "BELTEI — the best quality of education in Cambodia"។ ប្រើ <span class="highlight">position: sticky</span> ដើម្បីបិទជាប់ពេលរអិល។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៣</span>
+      <p><strong>Navigation (ម៉ឺនុយ)</strong> — មាន ៨ ម៉ឺនុយធំៗ៖ ទំព័រដើម, អំពីសាលា, កម្មវិធីសិក្សា, កម្មវិធីបន្ថែម, សម្ភារៈបរិក្ខារ, សិស្សពូកែ, ការប្រកួត, ព្រឹត្តិការណ៍, ទំនាក់ទំនង។ មាន <span class="highlight">Dropdown Menus</span> (ម៉ឺនុយធ្លាក់ចុះ) ពេល Mouse ដាក់លើ។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៤</span>
+      <p><strong>Hero Slider (រូបភាពរត់)</strong> — រូបភាពធំ ៣ សន្លឹកដែលប្តូរគ្នាស្វ័យប្រវត្តិរាល់ ៥ វិនាទី។ មានប៊ូតុងព្រួញឆ្វេង/ស្តាំ, ចំណុច (Dots), និង Counter "1 / 3"។ មាន Gradient Overlay ដើម្បីធ្វើឲ្យអក្សរអានបាន។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៥</span>
+      <p><strong>Stats Strip (របារលេខ)</strong> — របារខៀវមានលេខ ៤ ចំនួន៖ 32 ទីតាំង, ៦ កម្មវិធី, 50K+ សិស្ស, 20+ ឆ្នាំបទពិសោធន៍។ ប្រើ <span class="highlight">grid-template-columns: repeat(4, 1fr)</span>។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៦</span>
+      <p><strong>Cards (ប័ណ្ណ)</strong> — ប្រអប់សម្រាប់បង្ហាញមាតិកា។ មាន Header ពណ៌ខៀវចាស់ + បន្ទាត់មាសក្រោម។ ប្រើ <span class="highlight">border-radius: 18px</span> ដើម្បីមុំមូល និង <span class="highlight">box-shadow</span> សម្រាប់ស្រមោល។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៧</span>
+      <p><strong>Programs Grid (កម្មវិធីសិក្សា)</strong> — បង្ហាញកម្មវិធី ៥ ក្នុង Grid ៣ ជួរ។ នីមួយៗមានរូបភាព, ចំណងជើងខ្មែរ, និងអង់គ្លេស។ ពេល Mouse ដាក់លើ (hover) មាន <span class="highlight">transform: scale(1.03)</span> (ធំឡើង 3%) និងស្រមោលខ្លាំងឡើង។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៨</span>
+      <p><strong>Campus Grid (ទីតាំង ៣២)</strong> — បង្ហាញទីតាំងសាលា ៣២ កន្លែងក្នុង Grid ៤ ជួរ (នៅលើ Desktop)។ មានលេខ ១-៣២, រូបភាព, និងឈ្មោះទីតាំង។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៩</span>
+      <p><strong>News List (បញ្ជីព័ត៌មាន)</strong> — បង្ហាញព័ត៌មាន ៥ ចំណងជើងជាមួយរូបភាព, កាលបរិច្ឆេទ, និងអ្នកសរសេរ (Admin)។ ប្រើ <span class="highlight">flex</span> ដើម្បីរៀបរូបភាពនិងអក្សរក្នុងបន្ទាត់តែមួយ។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">១០</span>
+      <p><strong>Video Grid (វីឌីអូ)</strong> — បង្ហាញវីឌីអូ YouTube ៥ ក្នុង Grid ៣ ជួរ។ មានប៊ូតុង Play ពណ៌មាសនៅកណ្តាល។ ប្រើ <span class="highlight">aspect-ratio: 16/9</span> ដើម្បីរក្សាទម្រង់វីឌីអូ។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">១១</span>
+      <p><strong>Footer (ជើងទំព័រ)</strong> — មាន ៤ ជួរ៖ អំពីសាលា, តំណភ្ជាប់លឿន, កម្មវិធីសិក្សា, ទំនាក់ទំនង។ ពណ៌ខៀវចាស់ #0a1a3a ជាមួយបន្ទាត់មាសខាងលើ។ មានប៊ូតុងបណ្តាញសង្គម។</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-bolt"></i> ៦. JavaScript & jQuery (ខួរក្បាលគេហទំព័រ)</h2>
+    <div class="explanation-box">
+      <strong>JavaScript ធ្វើឲ្យគេហទំព័រមានជីវិត</strong>
+      <p>គេហទំព័រនេះប្រើ <span class="highlight">jQuery</span> (បណ្ណាល័យ JavaScript) ដើម្បីសរសេរកូដងាយស្រួលជាង។ សញ្ញា <strong>$</strong> គឺជាសញ្ញារបស់ jQuery។</p>
+    </div>
+    <div class="code-block">
+<span class="comment">// ============================================================
+// ផ្នែក A: HERO SLIDER (រូបភាពរត់)
+// ============================================================</span>
+
+<span class="comment">// ប្រកាសអថេរ (Variables)</span>
+<span class="attr">let</span> currentSlide = <span class="val">0</span>;     <span class="comment">// រូបភាពបច្ចុប្បន្ន (ចាប់ផ្តើមពី 0)</span>
+<span class="attr">const</span> totalSlides = <span class="val">3</span>;    <span class="comment">// ចំនួនរូបភាពសរុប = 3</span>
+
+<span class="comment">// ហៅវិធី showSlide() ដើម្បីបង្ហាញរូបភាព</span>
+<span class="attr">function</span> <span class="tag">showSlide</span>(number) {
+    <span class="comment">// បើលេខធំជាង 2 (ពីព្រោះចាប់ផ្តើមពី 0) ត្រលប់ទៅ 0</span>
+    <span class="attr">if</span> (number >= totalSlides) number = <span class="val">0</span>;
+    <span class="comment">// បើលេខតូចជាង 0 ទៅរូបភាពចុងក្រោយ</span>
+    <span class="attr">if</span> (number &lt; <span class="val">0</span>) number = totalSlides - <span class="val">1</span>;
+
+    currentSlide = number;
+
+    <span class="comment">// លាក់រូបភាពទាំងអស់</span>
+    $(<span class="val">'.hero__slide'</span>).removeClass(<span class="val">'active'</span>);
+    <span class="comment">// បង្ហាញតែរូបភាពបច្ចុប្បន្ន</span>
+    $(<span class="val">'.hero__slide'</span>).eq(currentSlide).addClass(<span class="val">'active'</span>);
+
+    <span class="comment">// ធ្វើដូចគ្នាសម្រាប់ Dots (ចំណុច)</span>
+    $(<span class="val">'.dot'</span>).removeClass(<span class="val">'active'</span>);
+    $(<span class="val">'.dot'</span>).eq(currentSlide).addClass(<span class="val">'active'</span>);
+
+    <span class="comment">// ធ្វើឲ្យ Counter ប្តូរលេខ (1 / 3)</span>
+    $(<span class="val">'#slideCurrent'</span>).text(currentSlide + <span class="val">1</span>);
+}
+    </div>
+    <div class="explanation-box">
+      <strong>ពន្យល់ jQuery Methods សំខាន់ៗ៖</strong>
+      <p>• <strong>$(selector)</strong> = ជ្រើសរើសធាតុ HTML (ដូច document.querySelector)<br>
+      • <strong>.addClass('active')</strong> = បន្ថែម Class "active" ឲ្យធាតុ<br>
+      • <strong>.removeClass('active')</strong> = យក Class "active" ចេញ<br>
+      • <strong>.eq(index)</strong> = ជ្រើសរើសធាតុតាមលេខលំដាប់ (0, 1, 2...)<br>
+      • <strong>.click(function(){...})</strong> = ពេលចុច Mouse ធ្វើអ្វី<br>
+      • <strong>.toggleClass('open')</strong> = បិទបើក Class (បើមានយកចេញ, បើគ្មានបន្ថែម)<br>
+      • <strong>setInterval(function, 5000)</strong> = រត់វិធីរាល់ ៥ វិនាទី</p>
+    </div>
+    <div class="code-block">
+<span class="comment">// ============================================================
+// ផ្នែក B: MOBILE NAV (ម៉ឺនុយទូរសព្ទ)
+// ============================================================</span>
+
+<span class="attr">function</span> <span class="tag">startMobileNav</span>() {
+    <span class="comment">// ពេលចុចប៊ូតុង Hamburger</span>
+    $(<span class="val">'#navToggle'</span>).click(<span class="attr">function</span>() {
+        <span class="comment">// Toggle = បើកបើកបើបិទ, បើបិទបើបើក</span>
+        $(<span class="val">'#navMenu'</span>).toggleClass(<span class="val">'open'</span>);
+    });
+
+    <span class="comment">// ពេលចុច Dropdown លើទូរសព្ទ</span>
+    $(<span class="val">'.dropdown &gt; a'</span>).click(<span class="attr">function</span>(e) {
+        <span class="attr">if</span> ($(window).width() &lt;= <span class="val">768</span>) {
+            e.preventDefault();  <span class="comment">// កុំឲ្យទៅ Link</span>
+            $(<span class="val">this</span>).closest(<span class="val">'li'</span>).toggleClass(<span class="val">'open'</span>);
+        }
+    });
+}
+    </div>
+    <div class="code-block">
+<span class="comment">// ============================================================
+// ផ្នែក C: SCROLL TO TOP (ប៊ូតុងរអិលទៅលើ)
+// ============================================================</span>
+
+<span class="attr">function</span> <span class="tag">startScrollTop</span>() {
+    <span class="comment">// ពេលអ្នកប្រើរអិលទំព័រ</span>
+    $(window).scroll(<span class="attr">function</span>() {
+        <span class="attr">if</span> ($(window).scrollTop() &gt; <span class="val">320</span>) {
+            <span class="comment">// បើរអិលលើស 320px → បង្ហាញប៊ូតុង</span>
+            $(<span class="val">'#scrollTop'</span>).addClass(<span class="val">'visible'</span>);
+        } <span class="attr">else</span> {
+            <span class="comment">// បើតិចជាង 320px → លាក់ប៊ូតុង</span>
+            $(<span class="val">'#scrollTop'</span>).removeClass(<span class="val">'visible'</span>);
+        }
+    });
+}
+    </div>
+    <div class="code-block">
+<span class="comment">// ============================================================
+// ផ្នែក D: SMOOTH SCROLL (រអិលរលូនទៅ Section)
+// ============================================================</span>
+
+<span class="attr">function</span> <span class="tag">startSmoothScroll</span>() {
+    <span class="comment">// ពេលចុច Link ណាដែលចាប់ផ្តើមដោយ # (ឧទ៖ #about, #programs)</span>
+    $(<span class="val">'a[href^="#"]'</span>).click(<span class="attr">function</span>(e) {
+        <span class="attr">let</span> target = $(<span class="val">this</span>.getAttribute(<span class="val">'href'</span>));
+
+        <span class="attr">if</span> (target.length) {
+            e.preventDefault();  <span class="comment">// កុំឲ្យលោតភ្លាមៗ</span>
+            $(<span class="val">'html, body'</span>).animate({
+                scrollTop: target.offset().top - <span class="val">100</span>
+            }, <span class="val">600</span>);  <span class="comment">// រអិលរយៈពេល 600ms</span>
+        }
+    });
+}
+    </div>
+    <div class="code-block">
+<span class="comment">// ============================================================
+// ផ្នែក E: TOUCH SWIPE (រអិលម្រាមដៃលើទូរសព្ទ)
+// ============================================================</span>
+
+<span class="attr">function</span> <span class="tag">startTouchSwipe</span>() {
+    <span class="attr">let</span> touchStart = <span class="val">0</span>;
+    <span class="attr">let</span> touchEnd = <span class="val">0</span>;
+
+    <span class="comment">// ពេលម្រាមដៃប៉ះ Hero</span>
+    $(<span class="val">'.hero'</span>).on(<span class="val">'touchstart'</span>, <span class="attr">function</span>(e) {
+        touchStart = e.originalEvent.touches[<span class="val">0</span>].screenX;
+    });
+
+    <span class="comment">// ពេលម្រាមដៃលើកឡើង</span>
+    $(<span class="val">'.hero'</span>).on(<span class="val">'touchend'</span>, <span class="attr">function</span>(e) {
+        touchEnd = e.originalEvent.changedTouches[<span class="val">0</span>].screenX;
+
+        <span class="comment">// បើរអិលឆ្វេង → រូបភាពបន្ទាប់</span>
+        <span class="attr">if</span> (touchEnd &lt; touchStart - <span class="val">50</span>) nextSlide();
+        <span class="comment">// បើរអិលស្តាំ → រូបភាពមុន</span>
+        <span class="attr">if</span> (touchEnd &gt; touchStart + <span class="val">50</span>) prevSlide();
+    });
+}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-mobile-alt"></i> ៧. Responsive Design (ឆ្លើយតបទៅនឹងឧបករណ៍)</h2>
+    <div class="explanation-box">
+      <strong>Responsive Design គឺជាអ្វី?</strong>
+      <p>វាមានន័យថា គេហទំព័រប្តូរទម្រង់ទៅតាម <span class="highlight">ទំហំអេក្រង់</span>។ ឧទាហរណ៍៖ លើកុំព្យូទ័របង្ហាញ ៤ ជួរ, លើ Tablet បង្ហាញ ២ ជួរ, លើទូរសព្ទបង្ហាញ ១ ជួរ។</p>
+    </div>
+    <div class="code-block">
+<span class="comment">/* ============================================================
+   ឧបករណ៍ Tablet (ទទឹងតិចជាង 1100px)
+   ============================================================ */</span>
+<span class="attr">@media</span> (<span class="tag">max-width</span>: <span class="val">1100px</span>) {
+    .page-layout { 
+        grid-template-columns: <span class="val">1fr</span>;  <span class="comment">/* Sidebar ចុះក្រោម */</span>
+    }
+    .sidebar { 
+        position: <span class="val">static</span>;        <span class="comment">/* លែងបិទជាប់ */</span>
+    }
+    .campus-grid { 
+        grid-template-columns: <span class="val">repeat(3, 1fr)</span>;  <span class="comment">/* ៣ ជួរ */</span>
+    }
+}
+
+<span class="comment">/* ============================================================
+   ឧបករណ៍ Mobile (ទទឹងតិចជាង 768px)
+   ============================================================ */</span>
+<span class="attr">@media</span> (<span class="tag">max-width</span>: <span class="val">768px</span>) {
+    .nav__toggle { 
+        display: <span class="val">flex</span>;           <span class="comment">/* បង្ហាញ Hamburger ប៊ូតុង */</span>
+    }
+    .nav__menu { 
+        display: <span class="val">none</span>;          <span class="comment">/* លាក់ម៉ឺនុយ */</span>
+    }
+    .nav__menu.open { 
+        display: <span class="val">flex</span>;          <span class="comment">/* បង្ហាញពេលចុច Hamburger */</span>
+    }
+    .programs-grid { 
+        grid-template-columns: <span class="val">repeat(2, 1fr)</span>;  <span class="comment">/* ២ ជួរ */</span>
+    }
+    .campus-grid { 
+        grid-template-columns: <span class="val">repeat(2, 1fr)</span>;  <span class="comment">/* ២ ជួរ */</span>
+    }
+    .stats-strip__grid { 
+        grid-template-columns: <span class="val">repeat(2, 1fr)</span>;  <span class="comment">/* ២x២ */</span>
+    }
+}
+
+<span class="comment">/* ============================================================
+   ឧបករណ៍ Mobile តូច (ទទឹងតិចជាង 480px)
+   ============================================================ */</span>
+<span class="attr">@media</span> (<span class="tag">max-width</span>: <span class="val">480px</span>) {
+    .programs-grid { 
+        grid-template-columns: <span class="val">1fr</span>;  <span class="comment">/* ១ ជួរ */</span>
+    }
+    .campus-grid { 
+        grid-template-columns: <span class="val">1fr 1fr</span>;  <span class="comment">/* ២ ជួរ */</span>
+    }
+    .topbar__contacts { 
+        display: <span class="val">none</span>;  <span class="comment">/* លាក់ទូរសព្ទ/អ៊ីមែល */</span>
+    }
+}
+    </div>
+    <div class="grid-2">
+      <div class="card-mini">
+        <h4><i class="fas fa-desktop"></i> Desktop (1280px+)</h4>
+        <p>• ម៉ឺនុយផ្តេកពេញ<br>• Grid ៣-៤ ជួរ<br>• Sidebar នៅស្តាំ<br>• Hero ធំ 560px</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-tablet-alt"></i> Tablet (768px - 1100px)</h4>
+        <p>• Sidebar ចុះក្រោម<br>• Grid ២-៣ ជួរ<br>• លែងបិទជាប់<br>• ព័ត៌មានជាជួរ</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-mobile-alt"></i> Mobile (480px - 768px)</h4>
+        <p>• Hamburger Menu<br>• Grid ២ ជួរ<br>• Stats ២x២<br>• ប៊ូតុងពេញទំហំ</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-mobile"></i> Mobile តូច (&lt;480px)</h4>
+        <p>• Grid ១ ជួរ<br>• លាក់ Topbar<br>• អក្សរតូចជាង<br>• ប៊ូតុងពេញ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-folder-tree"></i> ៨. រចនាសម្ព័ន្ធឯកសារ (File Structure)</h2>
+    <div class="code-block">
+📁 <span class="tag">beltei-website/</span>
+│
+├── 📄 <span class="attr">index.html</span>              <span class="comment">← ទំព័រដើម (ទំព័រនេះ)</span>
+├── 📄 <span class="attr">j.js</span>                    <span class="comment">← JavaScript ឯករាជ្យ</span>
+│
+├── 📁 <span class="tag">register/</span>
+│   ├── 📄 <span class="attr">regis.html</span>            <span class="comment">← ទំព័រចុះឈ្មោះសិក្សា</span>
+│   └── 🖼️ <span class="attr">IMG_4326.PNG</span>          <span class="comment">← រូប Logo សាលា</span>
+│
+├── 📁 <span class="tag">pic/</span>
+│   ├── 🖼️ <span class="attr">image.png</span>             <span class="comment">← រូបភាពទីតាំង ១</span>
+│   ├── 🖼️ <span class="attr">image copy.png</span>        <span class="comment">← រូបភាពទីតាំង ២</span>
+│   ├── 🖼️ <span class="attr">image copy 2.png</span>    <span class="comment">← រូបភាពទីតាំង ៣</span>
+│   ├── 🖼️ <span class="attr">...</span>                 <span class="comment">← រូបភាពទីតាំង ៤-៣២</span>
+│   ├── 🖼️ <span class="attr">image copy 32.png</span>   <span class="comment">← រូបកម្មវិធីបន្ថែម ១</span>
+│   ├── 🖼️ <span class="attr">...</span>                 <span class="comment">← រូបកម្មវិធីបន្ថែម ២-១២</span>
+│   ├── 🖼️ <span class="attr">image copy 44.png</span>   <span class="comment">← រូបសម្ភារៈបរិក្ខារ ១</span>
+│   ├── 🖼️ <span class="attr">...</span>                 <span class="comment">← រូបសម្ភារៈបរិក្ខារ ២-១២</span>
+│   ├── 🖼️ <span class="attr">image copy 56.png</span>   <span class="comment">← រូបព័ត៌មាន ១</span>
+│   └── 🖼️ <span class="attr">...</span>                 <span class="comment">← រូបព័ត៌មាន ២-៥</span>
+│
+└── 📁 <span class="tag">css/</span> (ប្រសិនបើមាន)
+    └── 📄 <span class="attr">style.css</span>             <span class="comment">← ឯកសារ CSS ឯករាជ្យ</span>
+    </div>
+    <div class="explanation-box">
+      <strong>ពន្យល់រចនាសម្ព័ន្ធ៖</strong>
+      <p>• <strong>index.html</strong> = ទំព័រដើម (ទំព័រដែលបើកដំបូង)<br>
+      • <strong>register/regis.html</strong> = ទំព័រសម្រាប់សិស្សចុះឈ្មោះ<br>
+      • <strong>pic/</strong> = ថតរូបភាពទាំងអស់ (ទីតាំង, កម្មវិធី, សម្ភារៈ, ព័ត៌មាន)<br>
+      • <strong>j.js</strong> = ឯកសារ JavaScript ឯករាជ្យ (បច្ចុប្បន្នទំនេរ)</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-lightbulb"></i> ៩. គោលគំនិតសំខាន់ៗ (Key Concepts)</h2>
+    <div class="grid-2">
+      <div class="card-mini">
+        <h4><i class="fas fa-layer-group"></i> Box Model</h4>
+        <p>គ្រប់ធាតុ HTML គឺជា "ប្រអប់"។ មាន ៤ ផ្នែក៖ Content (មាតិកា) → Padding (គម្លាតខាងក្នុង) → Border (បន្ទាត់) → Margin (គម្លាតខាងក្រៅ)។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-arrows-alt-h"></i> Flexbox</h4>
+        <p>ប្រព័ន្ធរៀបធាតុក្នុងបន្ទាត់តែមួយ (ដូចកៅអី)។ ប្រើ <strong>display: flex</strong> ដើម្បីរៀបធាតុឲ្យស្មើគ្នា ឬពាក់កណ្តាល។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-th"></i> CSS Grid</h4>
+        <p>ប្រព័ន្ធរៀបធាតុក្នុងតារាង (ជួរឈរ + ជួរដេក)។ ប្រើ <strong>display: grid</strong> និង <strong>grid-template-columns</strong>។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-magic"></i> CSS Animations</h4>
+        <p>ប្រើ <strong>@keyframes</strong> ដើម្បីបង្កើតចលនា (ដូចជា Dropdown ធ្លាក់ចុះ)។ ប្រើ <strong>transition</strong> ដើម្បីធ្វើឲ្យការផ្លាស់ប្តូររលូន។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-sticky-note"></i> Sticky Position</h4>
+        <p>ធាតុបិទជាប់នៅកន្លែងមួយពេលរអិលទំព័រ។ ប្រើ <strong>position: sticky; top: 0</strong> ដើម្បី Header បិទជាប់ខាងលើ។</p>
+      </div>
+      <div class="card-mini">
+        <h4><i class="fas fa-palette"></i> CSS Variables</h4>
+        <p>ប្រើពណ៌ដដែលគ្រប់ទីកន្លែង (ដូចជា #0a1a3a, #f59e0b, #2563eb)។ ប្រសិនបើចង់ប្តូរពណ៌ គ្រាន់តែប្តូរកន្លែងតែមួយ។</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-edit"></i> ១០. របៀបកែប្រែកូដ (How to Edit)</h2>
+    <div class="step-row">
+      <span class="step-number">១</span>
+      <p><strong>បើកឯកសារ</strong> — ប្រើកម្មវិធីដូចជា VS Code, Notepad++, ឬ Sublime Text។ កុំប្រើ Notepad ធម្មតា (មិនមានពណ៌កូដ)។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">២</span>
+      <p><strong>កែអក្សរ</strong> — ស្វែងរកអក្សរដែលចង់កែក្នុង HTML (ឧទ៖ "សាលា ប៊ែលធី")។ ផ្លាស់ប្តូរអក្សរហើយ Save (Ctrl+S)។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៣</span>
+      <p><strong>កែពណ៌</strong> — ស្វែងរកកូដពណ៌ក្នុង CSS (ឧទ៖ <span class="highlight">#0a1a3a</span> គឺជាពណ៌ខៀវចាស់)។ ផ្លាស់ប្តូរហើយ Save។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៤</span>
+      <p><strong>ប្តូររូបភាព</strong> — ដាក់រូបភាពថ្មីក្នុងថត <strong>pic/</strong> ហើយកែ src ក្នុង HTML (ឧទ៖ <span class="highlight">src="../pic/image-new.png"</span>)។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៥</span>
+      <p><strong>បន្ថែមម៉ឺនុយ</strong> — ចម្លង &lt;li&gt; ដែលមានស្រាប់ ហើយបិទបញ្ចូលក្នុង &lt;ul class="nav__menu"&gt;។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">៦</span>
+      <p><strong>បង្ហាញលើ Browser</strong> — ចុចពីរដងលើ <strong>index.html</strong> ឬ បើក Chrome ហើយដាក់ File → Open File។</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> ១១. កំហុសទូទៅ (Common Errors)</h2>
+    <div class="step-row">
+      <span class="step-number">!</span>
+      <p><strong>រូបភាពមិនបង្ហាញ</strong> — ពិនិត្យ src ថាត្រឹមត្រូវឬអត់ (ឧទ៖ ../pic/image.png vs ./pic/image.png)។ ពិនិត្យថាឈ្មោះឯកសារត្រឹមត្រូវ (ធំតូច)។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">!</span>
+      <p><strong>CSS មិនដំណើរការ</strong> — ពិនិត្យថា Class Name សរសេរត្រឹមត្រូវ (ឧទ៖ topbar vs top-bar)។ ពិនិត្យ Brackets {} បិទបើកត្រឹមត្រូវ។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">!</span>
+      <p><strong>JavaScript មិនដំណើរការ</strong> — ពិនិត្យ Console (F12 → Console) មើល Error។ ពិនិត្យថា jQuery CDN ដំណើរការឬអត់។</p>
+    </div>
+    <div class="step-row">
+      <span class="step-number">!</span>
+      <p><strong>Responsive មិនដំណើរការ</strong> — ពិនិត្យ @media queries ថាសរសេរត្រឹមត្រូវ។ ប្រើ DevTools (F12) ដើម្បីប្តូរទំហំអេក្រង់។</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> ១២. សង្ខេប (Summary)</h2>
+    <div class="explanation-box">
+      <strong>អ្វីដែលអ្នកបានរៀន៖</strong>
+      <p>• <strong>HTML</strong> = គ្រោងគេហទំព័រ (Tags, Elements)<br>
+      • <strong>CSS</strong> = តុបតែង (Colors, Layout, Animations)<br>
+      • <strong>JavaScript/jQuery</strong> = ធ្វើឲ្យមានជីវិត (Slider, Menu, Scroll)<br>
+      • <strong>Responsive</strong> = ឆ្លើយតបទៅនឹងឧបករណ៍ (Desktop, Tablet, Mobile)<br>
+      • <strong>File Structure</strong> = រៀបចំឯកសារឲ្យមានលំដាប់លំដោយ</p>
+    </div>
+    <div class="explanation-box">
+      <strong>គន្លឹះសំខាន់៖</strong>
+      <p>• រៀបចំកូដឲ្យមានលំដាប់លំដោយ (Comment, ឈ្មោះ Class ច្បាស់)<br>
+      • ប្រើ Class Name ដែលមានន័យ (ឧទ៖ topbar, header, nav)<br>
+      • ពិនិត្យកូដរៀងរាល់ពេល Save (Ctrl+S)<br>
+      • ប្រើ DevTools (F12) ដើម្បី Debug<br>
+      • រៀនពីកំហុស (Errors ជាគ្រូល្អបំផុត)</p>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <p>© 2026 BELTEI International School | ឯកសារណែនាំកូដគេហទំព័រ</p>
+    <p style="margin-top:8px; opacity:0.6;">សរសេរដោយ AI សម្រាប់អ្នកចាប់ផ្តើមរៀន Web Development</p>
+  </div>
+
+</div>
+</body>
+</html>
